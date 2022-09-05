@@ -11,6 +11,9 @@ int main(int argc, char *argv[]){
 	}
 	Converter Caster;
 	//Caster.whichType gibt enum zuruck mit der wir dann in die einzelnen Fälle können
+	//theoretisch kann amn hier den overflow checken vor dem switch
+	//aber dann brauchst du auch diese extar variable...
+	//jetzt ist alles in den convert functions erstmal
 	switch(Caster.whichType(argv[1])){
 		//range fur overflow einbauen
 		case Caster.CHAR:
@@ -21,9 +24,12 @@ int main(int argc, char *argv[]){
 			Caster.convert_double();
 		case Caster.FLOAT:
 			Caster.convert_float();
+		default:
+
 			//braucht dann nochmal subfunctions die 
 			//oder anderer aufbau, dass man erstmal nur ne enum zuruckgibt?
 	}
+	std::cout << Caster << std::endl;
 
 
 

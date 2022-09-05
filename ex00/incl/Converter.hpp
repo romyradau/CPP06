@@ -1,5 +1,6 @@
 # include <limits>
 # include <iostream>
+# include <string>
 
 
 class Converter{
@@ -31,16 +32,20 @@ class Converter{
 		void				convert_int();
 		void				convert_double();
 		void				convert_float();
-		bool				foundChar(std::string);
-		bool				foundInt(std::string);
-		bool				foundDouble(std::string);
-		bool				foundFloat(std::string);
+		//oder hier den ruckgabe wert noch aendern, dass die das direkt in den << eingeben
+		bool				foundChar(std::string arg);
+		bool				foundInt(std::string arg);
+		bool				foundDouble(std::string arg);
+		bool				foundFloat(std::string arg);
 
-	
-		// char	_c;
-		// int		_i;
-		// double	_d;
-		// float	_f;
+		char	_c;
+		int		_i;
+		double	_d;
+		float	_f;
+
+	private:
+
+		bool _overflow;
 
 };
 
