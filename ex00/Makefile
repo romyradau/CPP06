@@ -1,4 +1,4 @@
-NAME = staticCast
+NAME = convert
 
 CC = c++
 

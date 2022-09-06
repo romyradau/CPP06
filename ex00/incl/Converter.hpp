@@ -1,6 +1,10 @@
 # include <limits>
 # include <iostream>
 # include <string>
+# include <cstdlib>
+#include <iomanip>
+#include <sstream>
+
 
 
 class Converter{
@@ -21,6 +25,7 @@ class Converter{
 		~Converter();
 
 		enum TYPE{
+			PSEUDO,
 			CHAR,
 			INT,
 			DOUBLE,
@@ -28,11 +33,13 @@ class Converter{
 			ERR,
 		};
 		Converter::TYPE		whichType(std::string arg);
-		void				convert_char();
-		void				convert_int();
-		void				convert_double();
-		void				convert_float();
+		void					convert_pseudo(std::string arg);
+		void					convert_char(std::string arg);
+		void					convert_int(std::string arg);
+		void					convert_double(std::string arg);
+		void					convert_float(std::string arg);
 		//oder hier den ruckgabe wert noch aendern, dass die das direkt in den << eingeben
+		bool				foundPseudo(std::string arg);
 		bool				foundChar(std::string arg);
 		bool				foundInt(std::string arg);
 		bool				foundDouble(std::string arg);
@@ -46,6 +53,8 @@ class Converter{
 	private:
 
 		bool _overflow;
+		bool _inf;
+		bool _inff;
 
 };
 
