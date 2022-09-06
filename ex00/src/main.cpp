@@ -7,10 +7,14 @@ int main(int argc, char *argv[]){
 		if (argc != 2){
 			throw std::invalid_argument("wrong number of arguments");
 		}
-		Converter Caster;
-		switch(Caster.whichType(argv[1])){
-			case Caster.PSEUDO:
-				Caster.convert_pseudo(argv[1]); break;
+		Converter Caster(argv[1]);
+		Converter::TYPE type = Caster.whichType(argv[1]);
+
+		// if (Caster._inf || Caster._inff)
+		// 	std::cout << infinity_display(argv[1]) << std::endl;
+		switch(type){
+			// case Caster.PSEUDO:
+			// 	Caster.convert_pseudo(argv[1]); break;
 			case Caster.CHAR:
 				Caster.convert_char(argv[1]); break;
 			case Caster.INT:

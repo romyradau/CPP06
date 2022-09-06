@@ -10,10 +10,6 @@
 class Converter{
 
 	public:
-
-		class NonDisplayable: public std::exception{
-			const char* what() const throw();	
-		};
 		class Impossible: public std::exception{
 			const char* what() const throw();
 		};
@@ -25,7 +21,7 @@ class Converter{
 		~Converter();
 
 		enum TYPE{
-			PSEUDO,
+			// PSEUDO,
 			CHAR,
 			INT,
 			DOUBLE,
@@ -33,13 +29,13 @@ class Converter{
 			ERR,
 		};
 		Converter::TYPE		whichType(std::string arg);
-		void					convert_pseudo(std::string arg);
+		// void					convert_pseudo(std::string arg);
 		void					convert_char(std::string arg);
 		void					convert_int(std::string arg);
 		void					convert_double(std::string arg);
 		void					convert_float(std::string arg);
 		//oder hier den ruckgabe wert noch aendern, dass die das direkt in den << eingeben
-		bool				foundPseudo(std::string arg);
+		// bool				foundPseudo(std::string arg);
 		bool				foundChar(std::string arg);
 		bool				foundInt(std::string arg);
 		bool				foundDouble(std::string arg);
@@ -49,15 +45,17 @@ class Converter{
 		int		_i;
 		double	_d;
 		float	_f;
+		bool _inf;
+		bool _inff;
+		std::string _input;
 
 	private:
 
 		bool _overflow;
-		bool _inf;
-		bool _inff;
 
 };
 
+// std::ostream& infinity_display(std::ostream& o, std::string type);
 std::ostream& operator<<(std::ostream& o, Converter const& c);
 //use const everywhere...
 //in den Videos gabs hier diese inbuilt cast functions...
