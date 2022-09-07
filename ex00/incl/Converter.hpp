@@ -2,8 +2,8 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
-#include <iomanip>
-#include <sstream>
+# include <iomanip>
+# include <sstream>
 
 
 
@@ -21,7 +21,6 @@ class Converter{
 		~Converter();
 
 		enum TYPE{
-			// PSEUDO,
 			CHAR,
 			INT,
 			DOUBLE,
@@ -29,13 +28,10 @@ class Converter{
 			ERR,
 		};
 		Converter::TYPE		whichType(std::string arg);
-		// void					convert_pseudo(std::string arg);
-		void					convert_char(std::string arg);
-		void					convert_int(std::string arg);
-		void					convert_double(std::string arg);
-		void					convert_float(std::string arg);
-		//oder hier den ruckgabe wert noch aendern, dass die das direkt in den << eingeben
-		// bool				foundPseudo(std::string arg);
+		void				convert_char(std::string arg);
+		void				convert_int(std::string arg);
+		void				convert_double(std::string arg);
+		void				convert_float(std::string arg);
 		bool				foundChar(std::string arg);
 		bool				foundInt(std::string arg);
 		bool				foundDouble(std::string arg);
@@ -55,7 +51,6 @@ class Converter{
 
 };
 
-// std::ostream& infinity_display(std::ostream& o, std::string type);
 std::ostream& operator<<(std::ostream& o, Converter const& c);
 //use const everywhere...
 //in den Videos gabs hier diese inbuilt cast functions...

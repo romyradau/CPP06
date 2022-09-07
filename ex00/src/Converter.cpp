@@ -132,10 +132,14 @@ void				Converter::convert_float(std::string arg){
 
 }
 
+/*********************Exception******************/
+
 const char* Converter::Impossible::what() const throw(){
 	
-	return ("impossible");
+	return ("impossible Conversion");
 }
+
+/*********************InsertionOverload******************/
 
 std::ostream& operator<<(std::ostream& o, Converter const& c){
 
@@ -157,4 +161,3 @@ std::ostream& operator<<(std::ostream& o, Converter const& c){
 	<< "float representation:\t" << c._f << "f";
 	return o;
 }
-//nan missing...
