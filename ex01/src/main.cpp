@@ -10,8 +10,8 @@ int main(){
 	Data * comparePtr = deserialize(serialize(dataPtr));
 
 	std::cout << "dataPtr->value:		" << dataPtr->value << '\n'
-	<< "dataPtr->uint:		" << dataPtr->uint << '\n'
 	<< "comparePtr->value: 	" <<  comparePtr->value << '\n'
-	<< "comparePtr->uint:	" <<  comparePtr->uint << '\n' << std::endl;
+	<< "dataPtr->uint:		" << dataPtr->uint << '\n'
+	<< "comparePtr->uint:	" <<  comparePtr->uint << '\n';
 	return (0);
 }

@@ -77,10 +77,10 @@ void			Converter::convert_char(std::string arg){
 
 	if (this->_overflow)
 		throw Impossible();
-	this->_c = static_cast<char>(arg[0]);//cast arg zu c;
-	this->_i = static_cast<int>(this->_c);// cast arg zu int;
-	this->_d = static_cast<double>(this->_c);// cast arg zu double;
-	this->_f = static_cast<float>(this->_c);// cast zu float;
+	this->_c = static_cast<char>(arg[0]);
+	this->_i = static_cast<int>(this->_c);
+	this->_d = static_cast<double>(this->_c);
+	this->_f = static_cast<float>(this->_c);
 }
 
 void				Converter::convert_int(std::string arg){
@@ -92,6 +92,7 @@ void				Converter::convert_int(std::string arg){
 
 	if (this->_i > 32 && this->_i < 127)
 		this->_c = static_cast<char>(this->_i);
+
 	this->_d = static_cast<double>(this->_i);
 
 	this->_f = static_cast<float>(this->_i);
@@ -108,6 +109,7 @@ void				Converter::convert_double(std::string arg){
 
 	if (this->_d > 32 && this->_d < 127)
 		this->_c = static_cast<char>(this->_d);
+
 	if (this->_d < std::numeric_limits<int>::max() || this->_d > std::numeric_limits<int>::lowest())
 		this->_i = static_cast<int>(this->_d);
 
@@ -125,6 +127,7 @@ void				Converter::convert_float(std::string arg){
 
 	if (this->_f > 32 && this->_f < 127)
 		this->_c = static_cast<char>(this->_f);
+		
 	if (this->_f < std::numeric_limits<int>::max() || this->_f > std::numeric_limits<int>::lowest())
 		this->_i = static_cast<int>(this->_f);
 

@@ -1,9 +1,8 @@
-NAME = reinterpret
+NAME = dynamic
 
 CC = c++
 
 FLAGS =  -Wall -Wextra -Werror -std=c++98
-
 
 FLAGS += -g
 

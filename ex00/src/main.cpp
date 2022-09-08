@@ -9,12 +9,7 @@ int main(int argc, char *argv[]){
 		}
 		Converter Caster(argv[1]);
 		Converter::TYPE type = Caster.whichType(argv[1]);
-
-		// if (Caster._inf || Caster._inff)
-		// 	std::cout << infinity_display(argv[1]) << std::endl;
 		switch(type){
-			// case Caster.PSEUDO:
-			// 	Caster.convert_pseudo(argv[1]); break;
 			case Caster.CHAR:
 				Caster.convert_char(argv[1]); break;
 			case Caster.INT:
@@ -33,4 +28,5 @@ int main(int argc, char *argv[]){
 	{
 		std::cout << e.what() << std::endl;
 	};
+	return (0);
 }

@@ -52,5 +52,4 @@ class Converter{
 };
 
 std::ostream& operator<<(std::ostream& o, Converter const& c);
-//use const everywhere...
-//in den Videos gabs hier diese inbuilt cast functions...
+//could've used inbuilt cast functions?
