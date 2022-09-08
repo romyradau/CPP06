@@ -59,7 +59,7 @@ bool				Converter::foundDouble(std::string arg){
 	char * pEnd;
 	long double ld = strtold (arg.c_str(), &pEnd);
 	this->_overflow = (ld > std::numeric_limits<double>::max() || ld < std::numeric_limits<double>::lowest());
-	this->_inf =  (ld  == std::numeric_limits<double>::infinity() || -ld == std::numeric_limits<double>::infinity());
+	this->_inf =  (ld == std::numeric_limits<double>::infinity() || -ld == std::numeric_limits<double>::infinity());
 	return (*pEnd == '\0');
 }
 
@@ -110,7 +110,7 @@ void				Converter::convert_double(std::string arg){
 	if (this->_d > 32 && this->_d < 127)
 		this->_c = static_cast<char>(this->_d);
 
-	if (this->_d < std::numeric_limits<int>::max() || this->_d > std::numeric_limits<int>::lowest())
+	if (this->_d < std::numeric_limits<int>::max() && this->_d > std::numeric_limits<int>::lowest())
 		this->_i = static_cast<int>(this->_d);
 
 	this->_f = static_cast<float>(this->_d);
@@ -128,7 +128,7 @@ void				Converter::convert_float(std::string arg){
 	if (this->_f > 32 && this->_f < 127)
 		this->_c = static_cast<char>(this->_f);
 		
-	if (this->_f < std::numeric_limits<int>::max() || this->_f > std::numeric_limits<int>::lowest())
+	if (this->_f < std::numeric_limits<int>::max() && this->_f > std::numeric_limits<int>::lowest())
 		this->_i = static_cast<int>(this->_f);
 
 	this->_d = static_cast<double>(this->_f);
@@ -155,6 +155,8 @@ std::ostream& operator<<(std::ostream& o, Converter const& c){
 	else 
 		o << "char representation:\t" << c._c << "\n";
 	if (c._inf || c._inff)
+		o << "int representation:\timpossible" << "\n";
+	else if (c._f > std::numeric_limits<int>::max() || c._f < std::numeric_limits<int>::lowest())
 		o << "int representation:\timpossible" << "\n";
 	else if (c._input == "nan" || c._input == "nanf")
 		o << "int representation:\timpossible" << "\n";
